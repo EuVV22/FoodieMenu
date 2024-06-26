@@ -1,0 +1,4 @@
+﻿Questions
+Should I put my context on the FoodieMenu.Data
+How to create the schedule entity
+Categories having sub categories
