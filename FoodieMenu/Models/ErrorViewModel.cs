@@ -1,4 +1,4 @@
-namespace FoodieMenu.Models
+namespace FoodieMenu.Web.Models
 {
     public class ErrorViewModel
     {

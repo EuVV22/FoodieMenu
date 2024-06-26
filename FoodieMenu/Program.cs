@@ -1,4 +1,4 @@
-using FoodieMenu.Data;
+using FoodieMenu;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

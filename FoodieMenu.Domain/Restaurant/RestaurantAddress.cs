@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodieMenu.Data.Entities
+namespace FoodieMenu.Domain.Restaurant
 {
-    internal class RestaurantAddress
+    public class RestaurantAddress
     {
         public int AddressID { get; set; }
         public string AddressName { get; set; } = string.Empty;

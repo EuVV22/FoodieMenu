@@ -1,8 +1,8 @@
-using FoodieMenu.Models;
+using FoodieMenu.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace FoodieMenu.Controllers
+namespace FoodieMenu.Web.Controllers
 {
     public class HomeController : Controller
     {

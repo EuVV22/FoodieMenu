@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FoodieMenu.Domain.Restaurant;
+
 
 namespace FoodieMenu.Data
 {
@@ -8,6 +10,9 @@ namespace FoodieMenu.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            public DbSet<Restaurant> Restaurants { get; set; }
+            public DbSet<>
+
         }
     }
 }
