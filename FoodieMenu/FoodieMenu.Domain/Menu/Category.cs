@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FoodieMenu.Domain.Menu
 {
-    internal class Category
+    public class Category
     {
-        int MenuID { get; set; }
-        int CategoryID { get; set; }
-        string Name { get; set; }
-        List<Subcategory> Subcategories { get; set; }
+        public int MenuID { get; set; }
+        public int CategoryID { get; set; }
+        public string Name { get; set; }
+        public List<Subcategory> Subcategories { get; set; }
     }
 }

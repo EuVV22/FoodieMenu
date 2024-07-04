@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace FoodieMenu.Domain.Menu
 {
-    internal class Menu
+    public class Menu
     {
-        int RestaurantID { get; set; }
-        int MenuID { get; set; }
-        string Name { get; set; }
-        List<Category> Categories { get; set; }
-        bool IsActive { get; set; }
+        public int RestaurantID { get; set; }
+        public int MenuID { get; set; }
+        public string Name { get; set; }
+        public List<Category> Categories { get; set; }
+        public bool IsActive { get; set; }
     }
 }

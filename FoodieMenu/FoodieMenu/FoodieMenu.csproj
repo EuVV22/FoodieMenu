@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FoodieMenu.Domain\FoodieMenu.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

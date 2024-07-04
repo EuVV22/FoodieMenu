@@ -1,0 +1,17 @@
+﻿@page "/createmenu/{MenuName}"
+<EditForm method="post" Enhance @onsubmit="OnSubmit" FormName="add-menu-form">
+    <div class="row d-flex justify-content-center">
+        <h1>Create your menu: @MenuName</h1>
+    </div>
+    <div class="row">
+        <div>
+            <label>Category name</label>
+            <InputText id="categoryName" @bind-Value="@Category.Name" placeholder="Enter the first category of items name"></InputText>
+        </div>
+        <div>
+            <button id="subcategoryAdd" type="button">Add Subcategory</button>
+        </div>
+    </div>
+
+</EditForm>
+

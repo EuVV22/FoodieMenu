@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodieMenu.Domain.Menu
 {
-    internal class Subcategory
+    public class Subcategory
     {
         public int CategoryID { get; set; }
         public int SubcategoryID { get; set; }

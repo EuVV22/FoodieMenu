@@ -1,0 +1,23 @@
+﻿@page "/AddMenu"
+@inject NavigationManager NavManager
+
+
+<h1>AddMenu</h1>
+
+<form method="post" data-enhance @onsubmit="OnSubmit" @formname="add-menu-form">
+    <AntiforgeryToken />
+
+    <div>
+        <div>
+            <div>
+                <label for="menuName">Menu name: </label>
+                <InputText id="menuName" @bind-Value="@Name" placeholder="Enter menu name"></InputText>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+
+    </div>
+</form>
+
