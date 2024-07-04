@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodieMenu.Domain.Restaurants
 {
-    internal class Restaurant
+    public class Restaurant
     {
         public int RestaurantID { get; set; }
         public string Name { get; set; }
