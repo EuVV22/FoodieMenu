@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Domain", "Foodie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Data", "FoodieMenu.Data\FoodieMenu.Data.csproj", "{D7269FD9-7216-4304-AD1F-17EDE927946E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.WebAPI", "FoodieMenu.WebAPI\FoodieMenu.WebAPI.csproj", "{B2920E11-1841-4BA1-961C-8393C087A96B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D7269FD9-7216-4304-AD1F-17EDE927946E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7269FD9-7216-4304-AD1F-17EDE927946E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7269FD9-7216-4304-AD1F-17EDE927946E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2920E11-1841-4BA1-961C-8393C087A96B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2920E11-1841-4BA1-961C-8393C087A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2920E11-1841-4BA1-961C-8393C087A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2920E11-1841-4BA1-961C-8393C087A96B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
