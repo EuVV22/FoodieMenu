@@ -24,7 +24,6 @@ namespace FoodieMenu.Domain.Restaurants
         public string PostalCode { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         //public Schedule Schedule { get; set; } has to be define
-        [Required]
         public int RestaurantID { get; set; }
     }
 }

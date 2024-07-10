@@ -1,4 +1,5 @@
-﻿using FoodieMenu.Domain.Restaurants;
+﻿using FoodieMenu.Domain.Menu;
+using FoodieMenu.Domain.Restaurants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,37 @@ namespace FoodieMenu.Data.Repositories
     {
         private readonly FoodieContext _context;
 
-        public RestaurantRepository(FoodieContext context)
+        public RestaurantRepository()
         {
-            _context = context;
+            _context = new FoodieContext();
         }
 
-        async Task AddRestaurantAsync(Restaurant restaurant)
+        public void AddRestaurant(Restaurant restaurant)
         {
             _context.Restaurants.Add(restaurant);
+            _context.SaveChanges();
         }
-        Task UpdateRestaurantAsync(Restaurant restaurant)
-        {
-        }
-        public async Task<Restaurant> GetRestaurantByIdAsync(int ID)
+        public Restaurant GetRestaurantById(int ID)
         {
             return  _context.Restaurants.Single(x => x.RestaurantID == ID);
         }
-        Task GetRestaurantByEmailAsync(string email);
+        public Restaurant GetRestaurantByEmail(string email)
+        {
+            return _context.Restaurants.Single(restaurant => restaurant.email ==  email);
+        }
+
+        public List<string>GetAllRestaurantEmails()
+        {
+            return _context.Restaurants.Select(x => x.email).ToList();
+        }
+
+        // Menu
+
+        public List<Item> GetAllItems()
+        {
+            return _context.Items.ToList();
+        }
+
+
     }
 }

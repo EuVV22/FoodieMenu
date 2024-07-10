@@ -9,9 +9,9 @@ namespace FoodieMenu.Data.Repositories
 {
     public interface IRestaurantRepository
     {
-        Task AddRestaurantAsync(Restaurant restaurant);
-        Task UpdateRestaurantAsync(Restaurant restaurant);
-        Task GetRestaurantByIdAsync(int ID);
-        Task GetRestaurantByEmailAsync(string email);
+        void AddRestaurant(Restaurant restaurant);
+        Restaurant GetRestaurantById(int ID);
+        Restaurant GetRestaurantByEmail(string email);
+        List<string> GetAllRestaurantEmails();
     }
 }
