@@ -31,6 +31,6 @@ namespace FoodieMenu.Data
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite($"Data Source={DbPath}");
+            => optionsBuilder.UseSqlite($"Data Source=C:\\Users\\Euclides\\Documents\\Projects\\FoodieMenu\\FoodieMenu\\Foodie.db");
     }
 }

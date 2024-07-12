@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu", "FoodieMenu\FoodieMenu.csproj", "{35AE81DD-8DD5-4125-9594-A1628E0F6740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu", "FoodieMenu\FoodieMenu.csproj", "{35AE81DD-8DD5-4125-9594-A1628E0F6740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Domain", "FoodieMenu.Domain\FoodieMenu.Domain.csproj", "{6E003D88-9231-4EDA-8065-AF569F086A56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Domain", "FoodieMenu.Domain\FoodieMenu.Domain.csproj", "{6E003D88-9231-4EDA-8065-AF569F086A56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Data", "FoodieMenu.Data\FoodieMenu.Data.csproj", "{D7269FD9-7216-4304-AD1F-17EDE927946E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Data", "FoodieMenu.Data\FoodieMenu.Data.csproj", "{D7269FD9-7216-4304-AD1F-17EDE927946E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.WebAPI", "FoodieMenu.WebAPI\FoodieMenu.WebAPI.csproj", "{B2920E11-1841-4BA1-961C-8393C087A96B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.WebAPI", "FoodieMenu.WebAPI\FoodieMenu.WebAPI.csproj", "{B2920E11-1841-4BA1-961C-8393C087A96B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.TestingConsole", "FoodieMenu.TestingConsole\FoodieMenu.TestingConsole.csproj", "{018CC86B-5723-4852-A1A3-BDDBF23112D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B2920E11-1841-4BA1-961C-8393C087A96B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2920E11-1841-4BA1-961C-8393C087A96B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2920E11-1841-4BA1-961C-8393C087A96B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

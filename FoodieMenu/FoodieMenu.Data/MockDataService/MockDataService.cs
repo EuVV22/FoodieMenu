@@ -18,9 +18,9 @@ namespace FoodieMenu.Data.MockDataService
             get
             {
                 Restaurant result = InitializeMockRestaurants()[0];
-                Restaurant.Address = InitializeRestaurantAddress();
-                Restaurant.Menus = InitilizeMockMenus();
-                Restaurant.Items = Restaurant.Menus[0].Categories[0].Subcategories[0].Items;
+                result.Address = InitializeRestaurantAddress();
+                result.Menus = InitilizeMockMenus();
+                result.Items = result.Menus[0].Categories[0].Subcategories[0].Items;
                 return result;
             }
         }

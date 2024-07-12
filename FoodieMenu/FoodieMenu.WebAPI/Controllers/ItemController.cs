@@ -15,7 +15,7 @@ namespace FoodieMenu.WebAPI.Controllers
         {
             _foodieContext = new FoodieContext();
 
-            return _foodieContext.Items.; 
+            return _foodieContext.Items.Single; 
         }
     }
 }
