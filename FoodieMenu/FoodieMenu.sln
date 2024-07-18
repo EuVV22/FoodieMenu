@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Data", "FoodieMe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.WebAPI", "FoodieMenu.WebAPI\FoodieMenu.WebAPI.csproj", "{B2920E11-1841-4BA1-961C-8393C087A96B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.TestingConsole", "FoodieMenu.TestingConsole\FoodieMenu.TestingConsole.csproj", "{018CC86B-5723-4852-A1A3-BDDBF23112D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.TestingConsole", "FoodieMenu.TestingConsole\FoodieMenu.TestingConsole.csproj", "{018CC86B-5723-4852-A1A3-BDDBF23112D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Tests", "FoodieMenu.Tests\FoodieMenu.Tests.csproj", "{683A519A-6339-4B19-A1D6-43ED81F4403C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018CC86B-5723-4852-A1A3-BDDBF23112D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683A519A-6339-4B19-A1D6-43ED81F4403C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683A519A-6339-4B19-A1D6-43ED81F4403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683A519A-6339-4B19-A1D6-43ED81F4403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683A519A-6339-4B19-A1D6-43ED81F4403C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

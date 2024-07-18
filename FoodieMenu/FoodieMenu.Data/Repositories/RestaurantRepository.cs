@@ -24,6 +24,36 @@ namespace FoodieMenu.Data.Repositories
             _context.Restaurants.Add(restaurant);
             _context.SaveChanges();
         }
+
+        public void AddAddress(AddressRestaurant address)
+        {
+            _context.Address.Add(address);
+            _context.SaveChanges();
+        }
+
+        public void AddMenu(Menu menu)
+        {
+            _context.Menus.Add(menu);
+            _context.SaveChanges();
+        }
+
+        public void AddCategory(Category category)
+        {
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+        }
+
+        public void AddSubcategory(Subcategory subcategory)
+        {
+            _context.Subcategories.Add(subcategory);
+            _context.SaveChanges();
+        }
+
+        public void AddItem(Item item)
+        {
+            _context.Items.Add(item);
+            _context.SaveChanges();
+        }
         public Restaurant GetRestaurantById(int ID)
         {
             Restaurant restaurant = _context.Restaurants.Single(x => x.RestaurantID == ID);
@@ -67,6 +97,22 @@ namespace FoodieMenu.Data.Repositories
                 PopulateMenu(menu);
             }
             return menus;
+        }
+
+        // Delete
+        public void RemoveItem(Item item)
+        {
+            _context.Items.Remove(item);
+        }
+
+        public void RemoveMenu(Menu menu)
+        {
+            _context.Menus.Remove(menu);
+        }
+
+        public void RemoveCategory(Category category)
+        {
+            _context.Categories.Remove(category);
         }
 
         private void PopulateMenu(Menu menu)

@@ -7,17 +7,60 @@
 <form method="post" data-enhance @onsubmit="OnSubmit" @formname="add-menu-form">
     <AntiforgeryToken />
 
+    <div id="Restaurant">
+        <div>
+            <label for="RestaurantName">Restaurant name: </label>
+            <InputText id="RestaurantName" @bind-Value="@RestaurantName" placeholder="Enter restaurant name"></InputText>
+        </div>
+        <div>
+            <label for="RestaurantDescription">Restaurant description: </label>
+            <InputText id="RestaurantDescription" @bind-Value="@RestaurantDescription" placeholder="Enter restaurant description"></InputText>
+        </div>
+        <div>
+            <label for="RestaurantEmail">Restaurant email: </label>
+            <InputText id="RestaurantEmail" @bind-Value="@RestaurantEmail" placeholder="Enter restaurant email"></InputText>
+        </div>
+    </div>
+    
     <div>
         <div>
             <div>
                 <label for="menuName">Menu name: </label>
-                <InputText id="menuName" @bind-Value="@Name" placeholder="Enter menu name"></InputText>
+                <InputText id="menuName" @bind-Value="@MenuName" placeholder="Enter menu name"></InputText>
             </div>
         </div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
+    </div>
 
+    <div id="MenuCategories">
+        <div>
+            <label for="categoryName">Category name: </label>
+            <InputText id="categoryName" @bind-Value="@CategoryName" placeholder="Enter category name"></InputText>
+        </div>
+    </div>
+
+    <div id="MenuSubcategories">
+        <div>
+            <label for="subcategoryName">Subcategory name: </label>
+            <InputText id="subcategoryName" @bind-Value="@SubcategoryName" placeholder="Enter subcategory name"></InputText>
+        </div>
+    </div>
+    <div id="ItemCreation">
+        <div>
+            <label for="ItemName">Item name: </label>
+            <InputText id="ItemName" @bind-Value="@ItemName" placeholder="Enter item name"></InputText>
+        </div>
+        <div>
+            <label for="ItemDescription">Description: </label>
+            <InputText id="ItemDescription" @bind-Value="@ItemDescription" placeholder="Enter item description"></InputText>
+        </div>
+        <div>
+            <label for="ItemPrice">Price: </label>
+            <InputNumber id="ItemPrice" @bind-Value="@ItemPrice" placeholder="Enter item price"></InputNumber>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
     </div>
 </form>
 
