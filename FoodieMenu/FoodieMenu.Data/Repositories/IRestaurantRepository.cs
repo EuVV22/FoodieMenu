@@ -1,4 +1,6 @@
-﻿using FoodieMenu.Domain.Restaurants;
+﻿using FoodieMenu.Domain.Menu;
+using FoodieMenu.Domain.Restaurants;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,25 @@ namespace FoodieMenu.Data.Repositories
 {
     public interface IRestaurantRepository
     {
-        void AddRestaurant(Restaurant restaurant);
-        Restaurant GetRestaurantById(int ID);
-        Restaurant GetRestaurantByEmail(string email);
-        List<string> GetAllRestaurantEmails();
+        public void AddRestaurant(Restaurant restaurant);
+        public void AddAddress(AddressRestaurant address);
+        public void AddMenu(Menu menu);
+        public void AddCategory(Category category);
+        public void AddSubcategory(Subcategory subcategory);
+        public void AddItem(Item item);
+        public Restaurant GetRestaurantById(int ID);
+        public Restaurant GetRestaurantByEmail(string email);
+        public List<string> GetAllRestaurantEmails();
+
+        // Menu
+        public List<Item> GetAllItems();
+        public List<Item> GetItemsByRestaurantID(int ID);
+        public List<AddressRestaurant> GetAddressRestaurantsByRestaurantID(int ID);
+        public List<Menu> GetMenusByRestaurantID(int ID);
+
+        // Delete
+        public void RemoveItem(Item item);
+        public void RemoveMenu(Menu menu);
+        public void RemoveCategory(Category category);
     }
 }
