@@ -61,7 +61,7 @@ namespace FoodieMenu.Components.Pages
             repo.AddRestaurant(restaurant);
 
             Restaurant addedRestaurant = repo.GetRestaurantByEmail(restaurant.email);
-            NavManager.NavigateTo($"/createmenu/{addedRestaurant.RestaurantID}");
+            NavManager.NavigateTo($"/AddItem/{addedRestaurant.RestaurantID}");
         }
     }
 }
