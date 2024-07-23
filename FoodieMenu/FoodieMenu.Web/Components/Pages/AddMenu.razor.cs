@@ -2,6 +2,7 @@
 using FoodieMenu.Domain.Menu;
 using FoodieMenu.Domain.Restaurants;
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace FoodieMenu.Web.Components.Pages
 {
@@ -25,14 +26,19 @@ namespace FoodieMenu.Web.Components.Pages
         public string ItemDescription { get; set; }
         [SupplyParameterFromForm]
         public double ItemPrice { get; set; }
+        public bool IsActive { get; set; } = true;
 
+        MudForm form;
+        bool success;
+        string[] errors;
 
         protected override Task OnInitializedAsync()
         {
+            IsActive = true;
             return base.OnInitializedAsync();
         }
 
-        private async Task OnSubmit()
+        private async Task Test()
         {
             Restaurant restaurant = new Restaurant()
             {

@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.TestingConsole",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Tests", "FoodieMenu.Tests\FoodieMenu.Tests.csproj", "{683A519A-6339-4B19-A1D6-43ED81F4403C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieMenu.Web", "FoodieMenu.Web\FoodieMenu.Web.csproj", "{70B7B99F-183C-42D3-BE5C-A21499B3565A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Web", "FoodieMenu.Web\FoodieMenu.Web.csproj", "{70B7B99F-183C-42D3-BE5C-A21499B3565A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

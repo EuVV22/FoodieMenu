@@ -1,0 +1,11 @@
+﻿@page "/RestaurantToAddItem"
+@inject NavigationManager NavManager
+@rendermode InteractiveServer
+
+<h1>Enter the restaurant email to add an item</h1>
+
+<MudForm @ref="form2">
+    <MudTextField T="string" Label="RestaurantEmail" @bind-Value="RestaurantEmail" Required="true" RequiredError="Restaurant email is required!" />
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="ShowAddItemWeb">Register</MudButton>
+</MudForm>
+

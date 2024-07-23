@@ -1,0 +1,35 @@
+﻿@page "/AddItem/{RestaurantID:int}"
+@rendermode InteractiveServer
+
+<h1>Add new items to @_restaurant.Name</h1>
+
+<MudSelect T="string" Label="Menu" @bind-value="SelectedMenu">
+    @foreach(var menu in _restaurant.Menus)
+    {
+        <MudSelectItem Value="@menu.Name" />
+    }
+    <MudSelectItem Value="@("New Menu")" />
+</MudSelect>
+
+@if (SelectedMenu != string.Empty)
+{
+    @if (SelectedMenu == "New Menu")
+    {
+        <MudTextField T="string" Label="MenuName" @bind-Value="MenuName" Required="true" RequiredError="Menu name is required!" />
+        <MudTextField T="string" Label="CategoryName" @bind-Value="CategoryName" Required="true" RequiredError="A category is required!" />
+        <MudTextField T="string" Label="SubcategoryName" @bind-Value="SubcategoryName" Required="true" RequiredError="Subcategory name is required!" />
+    } else
+    {
+        <MudSelect T="string" Label="Category" @bind-Value="CategorySelected">
+            @foreach (var category in _restaurant.Menus.Single(x => x.Name == SelectedMenu).Categories)
+            {
+                <MudSelectItem Value="@category.Name" />
+            }
+        </MudSelect>
+    }
+
+    @* <MudTextField T="string" Label="ItemName" @bind-Value="ItemName" Required="true" RequiredError="Item name is required!" />
+    <MudTextField T="string" Label="ItemDescription" @bind-Value="ItemDescription" Required="true" RequiredError="Item name is required!" />
+    <MudTextField T="double" Label="ItemPrice" @bind-Value="ItemPrice" Required="true" RequiredError="Item price is required!" /> *@
+}
+
