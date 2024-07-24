@@ -24,9 +24,8 @@ namespace FoodieMenu.Web.Components.Pages
         private string SubcategoryName { get; set; }
 
         private Menu CreateMenu()
-        {
-            Subcategory subcategory = new Subcategory() { Name = SubcategoryName };
-            Category category = new Category() { Name = CategoryName, Subcategories = [subcategory] };
+        {;
+            Category category = new Category() { Name = CategoryName };
             return new Menu() { Name = MenuName, Categories = [category] };
         }
 

@@ -15,7 +15,6 @@ namespace FoodieMenu.Data.Repositories
         public void AddAddress(AddressRestaurant address);
         public void AddMenu(Menu menu);
         public void AddCategory(Category category);
-        public void AddSubcategory(Subcategory subcategory);
         public void AddItem(Item item);
         public Restaurant GetRestaurantById(int ID);
         public Restaurant GetRestaurantByEmail(string email);

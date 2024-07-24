@@ -11,6 +11,6 @@ namespace FoodieMenu.Domain.Menu
         public int MenuID { get; set; }
         public int CategoryID { get; set; }
         public string Name { get; set; }
-        public List<Subcategory> Subcategories { get; set; }
+        public List<Item> Items { get; set; }
     }
 }

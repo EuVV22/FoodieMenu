@@ -9,13 +9,11 @@ namespace FoodieMenu.WebAPI.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        private FoodieContext _foodieContext;
         [HttpGet]
         public Item Get()
         {
-            _foodieContext = new FoodieContext();
 
-            return _foodieContext.Items.Single; 
+            return new Item();
         }
     }
 }

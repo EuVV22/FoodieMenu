@@ -17,7 +17,6 @@ namespace FoodieMenu.Data
         public DbSet<AddressRestaurant> Address {  get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Subcategory> Subcategories { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Client> Clients { get; set; }
         public string DbPath { get; }

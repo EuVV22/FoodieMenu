@@ -20,7 +20,7 @@ namespace FoodieMenu.Data.MockDataService
                 Restaurant result = InitializeMockRestaurants()[0];
                 result.Address = InitializeRestaurantAddress();
                 result.Menus = InitilizeMockMenus();
-                result.Items = result.Menus[0].Categories[0].Subcategories[0].Items;
+                result.Items = result.Menus[0].Categories[0].Items;
                 return result;
             }
         }
@@ -78,28 +78,16 @@ namespace FoodieMenu.Data.MockDataService
                 MenuID = 1,
                 CategoryID = 1,
                 Name = "Appetizers",
-                Subcategories = InitializeMockSubcategories()
+                Items = InitilizeMockItems()
             };
             Category category2 = new Category()
             {
                 MenuID = 2,
                 CategoryID = 2,
                 Name = "Entrees",
-                Subcategories = []
+                Items = []
             };
             return [category1, category2];
-        }
-
-        private static List<Subcategory> InitializeMockSubcategories()
-        {
-            Subcategory subcategory1 = new Subcategory()
-            {
-                CategoryID = 1,
-                SubcategoryID = 1,
-                Name = "Venezuelan app",
-                Items = InitilizeMockItems()
-            };
-            return [subcategory1];
         }
 
         private static List<Item> InitilizeMockItems()

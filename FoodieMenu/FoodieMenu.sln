@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu", "FoodieMenu\FoodieMenu.csproj", "{35AE81DD-8DD5-4125-9594-A1628E0F6740}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Domain", "FoodieMenu.Domain\FoodieMenu.Domain.csproj", "{6E003D88-9231-4EDA-8065-AF569F086A56}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieMenu.Data", "FoodieMenu.Data\FoodieMenu.Data.csproj", "{D7269FD9-7216-4304-AD1F-17EDE927946E}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35AE81DD-8DD5-4125-9594-A1628E0F6740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35AE81DD-8DD5-4125-9594-A1628E0F6740}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35AE81DD-8DD5-4125-9594-A1628E0F6740}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35AE81DD-8DD5-4125-9594-A1628E0F6740}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E003D88-9231-4EDA-8065-AF569F086A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E003D88-9231-4EDA-8065-AF569F086A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E003D88-9231-4EDA-8065-AF569F086A56}.Release|Any CPU.ActiveCfg = Release|Any CPU

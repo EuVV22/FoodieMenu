@@ -10,7 +10,7 @@ namespace FoodieMenu.Domain.Menu
     public class Item
     {
         public int RestaurantID {  get; set; }
-        public List<Subcategory> Subcategories { get; set; }
+        public List<Category> Categories { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

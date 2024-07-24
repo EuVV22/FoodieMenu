@@ -43,12 +43,6 @@ namespace FoodieMenu.Data.Repositories
             _context.SaveChanges();
         }
 
-        public void AddSubcategory(Subcategory subcategory)
-        {
-            _context.Subcategories.Add(subcategory);
-            _context.SaveChanges();
-        }
-
         public void AddItem(Item item)
         {
             _context.Items.Add(item);
@@ -119,14 +113,8 @@ namespace FoodieMenu.Data.Repositories
         {
             List<Item> restaurantItems = _context.Items.Where(x => x.RestaurantID == menu.RestaurantID).ToList();
             // Populate categories
-            menu.Categories = _context.Categories.Where(x => x.MenuID == menu.MenuID).ToList();
+            menu.Categories = _context.Categories.Include(x => x.Items).Where(x => x.MenuID == menu.MenuID).ToList();
 
-            // TODO: Maybe turn it into Eager Loading??
-            // Populate subcategories
-            foreach (var category in menu.Categories)
-            {
-                category.Subcategories = _context.Subcategories.Include(x => x.Items).Where(x => x.CategoryID == category.CategoryID).ToList();
-            }
         } 
 
 

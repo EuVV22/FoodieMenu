@@ -19,8 +19,6 @@ namespace FoodieMenu.Web.Components.Pages
         [SupplyParameterFromForm]
         public string CategoryName { get; set; }
         [SupplyParameterFromForm]
-        public string SubcategoryName { get; set; }
-        [SupplyParameterFromForm]
         public string ItemName { get; set; }
         [SupplyParameterFromForm]
         public string ItemDescription { get; set; }
@@ -48,7 +46,6 @@ namespace FoodieMenu.Web.Components.Pages
             };
             Menu menu = new Menu() { Name = MenuName };
             Category category = new Category() { Name = CategoryName };
-            Subcategory subcategory = new Subcategory() { Name = SubcategoryName };
             Item item = new Item()
             {
                 Name = ItemName,
@@ -56,8 +53,7 @@ namespace FoodieMenu.Web.Components.Pages
                 Price = ItemPrice,
                 IsActive = true
             };
-            subcategory.Items = [item];
-            category.Subcategories = [subcategory];
+            category.Items = [item];
             menu.Categories = [category];
             restaurant.Menus = [menu];
             restaurant.Items = [item];
