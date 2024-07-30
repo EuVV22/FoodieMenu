@@ -30,5 +30,9 @@ namespace FoodieMenu.Data.Repositories
         public void RemoveItem(Item item);
         public void RemoveMenu(Menu menu);
         public void RemoveCategory(Category category);
+        public void RemoveRestaurant(Restaurant restaurant);
+
+        // Update
+        public void UpdateMenu(Menu menu);
     }
 }

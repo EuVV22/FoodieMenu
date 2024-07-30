@@ -97,16 +97,25 @@ namespace FoodieMenu.Data.Repositories
         public void RemoveItem(Item item)
         {
             _context.Items.Remove(item);
+            _context.SaveChanges();
         }
 
         public void RemoveMenu(Menu menu)
         {
             _context.Menus.Remove(menu);
+            _context.SaveChanges();
         }
 
         public void RemoveCategory(Category category)
         {
             _context.Categories.Remove(category);
+            _context.SaveChanges();
+        }
+
+        public void RemoveRestaurant(Restaurant restaurant)
+        {
+            _context.Restaurants.Remove(restaurant);
+            _context.SaveChanges();
         }
 
         private void PopulateMenu(Menu menu)
@@ -117,6 +126,11 @@ namespace FoodieMenu.Data.Repositories
 
         } 
 
-
+        // Update
+        public void UpdateMenu(Menu menu)
+        {
+            _context.Menus.Update(menu);
+            _context.SaveChanges();
+        }
     }
 }

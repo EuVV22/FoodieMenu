@@ -14,10 +14,7 @@ namespace FoodieMenu.Domain.Restaurants
         public string Description { get; set; }
         public string email { get; set; }
         public List<Menu.Menu> Menus { get; set; }
-
         public List<Item> Items { get; set; }
-
         public List<AddressRestaurant> Address { get; set;}
-
     }
 }

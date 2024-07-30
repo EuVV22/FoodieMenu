@@ -6,29 +6,35 @@
 <MudSelect T="string" Label="Menu" @bind-value="SelectedMenu">
     @foreach(var menu in _restaurant.Menus)
     {
-        <MudSelectItem Value="@menu.Name" />
+        <MudSelectItem Value="@menu.Name" DisplayString="testing"/>
     }
-    <MudSelectItem Value="@("New Menu")" />
+    <MudSelectItem Value="@NewMenu" />
 </MudSelect>
 
 @if (SelectedMenu != string.Empty)
 {
-    @if (SelectedMenu == "New Menu")
+    @if (SelectedMenu == NewMenu)
     {
         <MudTextField T="string" Label="MenuName" @bind-Value="MenuName" Required="true" RequiredError="Menu name is required!" />
         <MudTextField T="string" Label="CategoryName" @bind-Value="CategoryName" Required="true" RequiredError="A category is required!" />
     } else
     {
-        <MudSelect T="string" Label="Category" @bind-Value="CategorySelected">
+        <MudSelect T="string" Label="Category" @bind-Value="SelectedCategory">
             @foreach (var category in _restaurant.Menus.Single(x => x.Name == SelectedMenu).Categories)
             {
                 <MudSelectItem Value="@category.Name" />
             }
+            <MudSelectItem Value="@NewCategory" />
         </MudSelect>
+        if (SelectedCategory == NewCategory)
+        {
+            <MudTextField T="string" Label="CategoryName" @bind-Value="CategoryName" Required="true" RequiredError="A category is required!" />
+        }
     }
 
-    @* <MudTextField T="string" Label="ItemName" @bind-Value="ItemName" Required="true" RequiredError="Item name is required!" />
-    <MudTextField T="string" Label="ItemDescription" @bind-Value="ItemDescription" Required="true" RequiredError="Item name is required!" />
-    <MudTextField T="double" Label="ItemPrice" @bind-Value="ItemPrice" Required="true" RequiredError="Item price is required!" /> *@
+    <MudTextField T="string" Label="ItemName" @bind-Value="item.Name" Required="true" RequiredError="Item name is required!" />
+    <MudTextField T="string" Label="ItemDescription" @bind-Value="item.Description" Required="true" RequiredError="Item name is required!" />
+    <MudTextField T="double" Label="ItemPrice" @bind-Value="item.Price" Required="true" RequiredError="Item price is required!" />
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="summit">Register</MudButton>
 }
 

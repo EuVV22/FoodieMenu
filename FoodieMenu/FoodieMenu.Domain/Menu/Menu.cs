@@ -13,5 +13,10 @@ namespace FoodieMenu.Domain.Menu
         public string Name { get; set; }
         public List<Category> Categories { get; set; }
         public bool IsActive { get; set; }
+
+        public Menu()
+        {
+            Categories = [];
+        }
     }
 }
