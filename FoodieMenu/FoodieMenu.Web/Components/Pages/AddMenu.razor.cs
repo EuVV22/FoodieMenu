@@ -8,12 +8,8 @@ namespace FoodieMenu.Web.Components.Pages
 {
     public partial class AddMenu
     {
-        [SupplyParameterFromForm]
-        public string RestaurantName { get; set; }
-        [SupplyParameterFromForm]
-        public string RestaurantDescription { get; set; }
-        [SupplyParameterFromForm]
-        public string RestaurantEmail { get; set; }
+        [Parameter]
+        public int RestaurantID { get; set; }
         [SupplyParameterFromForm]
         public string MenuName { get; set; }
         [SupplyParameterFromForm]
@@ -24,6 +20,9 @@ namespace FoodieMenu.Web.Components.Pages
         public string ItemDescription { get; set; }
         [SupplyParameterFromForm]
         public double ItemPrice { get; set; }
+
+        Restaurant restaurant { get; set; }
+        IRestaurantRepository Repository { get; set; }
         public bool IsActive { get; set; } = true;
 
         MudForm form;
@@ -32,18 +31,16 @@ namespace FoodieMenu.Web.Components.Pages
 
         protected override Task OnInitializedAsync()
         {
+            Repository = new RestaurantRepository();
+
+            restaurant = Repository.GetRestaurantById(RestaurantID);
             IsActive = true;
             return base.OnInitializedAsync();
         }
 
         private async Task Test()
         {
-            Restaurant restaurant = new Restaurant()
-            {
-                Name = RestaurantName,
-                Description = RestaurantDescription,
-                email = RestaurantEmail
-            };
+            
             Menu menu = new Menu() { Name = MenuName };
             Category category = new Category() { Name = CategoryName };
             Item item = new Item()
@@ -58,10 +55,8 @@ namespace FoodieMenu.Web.Components.Pages
             restaurant.Menus = [menu];
             restaurant.Items = [item];
 
-            RestaurantRepository repo = new RestaurantRepository();
-            repo.AddRestaurant(restaurant);
-
-            Restaurant addedRestaurant = repo.GetRestaurantByEmail(restaurant.email);
+            Repository.AddRestaurant(restaurant);
+            Restaurant addedRestaurant = Repository.GetRestaurantByEmail(restaurant.email);
             NavManager.NavigateTo($"/AddItem/{addedRestaurant.RestaurantID}");
         }
     }

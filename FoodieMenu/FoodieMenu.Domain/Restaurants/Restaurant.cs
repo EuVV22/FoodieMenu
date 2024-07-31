@@ -16,5 +16,12 @@ namespace FoodieMenu.Domain.Restaurants
         public List<Menu.Menu> Menus { get; set; }
         public List<Item> Items { get; set; }
         public List<AddressRestaurant> Address { get; set;}
+
+        public Restaurant()
+        {
+            Menus = [];
+            Items = [];
+            Address = [];
+        }
     }
 }

@@ -1,0 +1,12 @@
+﻿@page "/AddRestaurant"
+@inject NavigationManager NavManager
+@rendermode InteractiveServer
+
+<h3>AddRestaurant</h3>
+
+<MudForm>
+    <MudTextField T="string" Label="RestaurantName" @bind-Value="RestaurantName" Required="true" RequiredError="Restaurant name is required!" />
+    <MudTextField T="string" Label="RestaurantDescription" @bind-Value="RestaurantDescription" Required="false" />
+    <MudTextField T="string" Label="RestaurantEmail" @bind-Value="RestaurantEmail" Required="true" RequiredError="Restaurant email is required!" />
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="SummitForm">Register</MudButton>
+</MudForm>

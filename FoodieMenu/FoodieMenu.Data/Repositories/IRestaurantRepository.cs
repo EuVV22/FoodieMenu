@@ -33,6 +33,8 @@ namespace FoodieMenu.Data.Repositories
         public void RemoveRestaurant(Restaurant restaurant);
 
         // Update
+        public void UpdateRestaurant(Restaurant restaurant);
         public void UpdateMenu(Menu menu);
+        public void UpdateCategory(Category category);
     }
 }

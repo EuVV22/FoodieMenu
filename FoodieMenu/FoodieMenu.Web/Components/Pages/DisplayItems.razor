@@ -1,0 +1,15 @@
+﻿@page "/items"
+@rendermode InteractiveServer
+
+<h1>DisplayItems</h1>
+
+@foreach (var item in items)
+{
+    <MudItem>
+        <MudPaper>
+            <h2>@item.Name</h2>
+            <h4>Price: @item.Price</h4>
+            <p>@item.Description</p>
+        </MudPaper>
+    </MudItem>
+}

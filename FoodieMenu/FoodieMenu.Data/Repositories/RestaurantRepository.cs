@@ -127,9 +127,21 @@ namespace FoodieMenu.Data.Repositories
         } 
 
         // Update
+
+        public void UpdateRestaurant(Restaurant restaurant)
+        {
+            _context.Restaurants.Update(restaurant);
+            _context.SaveChanges();
+        }
         public void UpdateMenu(Menu menu)
         {
             _context.Menus.Update(menu);
+            _context.SaveChanges();
+        }
+
+        public void UpdateCategory(Category category)
+        {
+            _context.Categories.Update(category);
             _context.SaveChanges();
         }
     }

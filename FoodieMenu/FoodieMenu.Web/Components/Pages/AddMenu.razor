@@ -1,14 +1,11 @@
-﻿@page "/AddMenu"
+﻿@page "/AddMenu/{RestaurantID:int}"
 @inject NavigationManager NavManager
 @rendermode InteractiveServer
 
+<h1>Add new menu to @restaurant.Name</h1>
 <MudItem xs="12" sm="7">
     <MudPaper Class="pa-4">
         <MudForm @ref="form">
-            <MudTextField T="string" Label="RestaurantName" @bind-Value="RestaurantName" Required="true" RequiredError="Restaurant name is required!" />
-            <MudTextField T="string" Label="RestaurantDescription" @bind-Value="RestaurantDescription" Required="false"/>
-            <MudTextField T="string" Label="RestaurantEmail" @bind-Value="RestaurantEmail" Required="true" RequiredError="Restaurant email is required!" />
-            
             <MudTextField T="string" Label="MenuName" @bind-Value="MenuName" Required="true" RequiredError="Menu name is required!" />
             <MudTextField T="string" Label="CategoryName" @bind-Value="CategoryName" Required="true" RequiredError="A category is required!" />
             
