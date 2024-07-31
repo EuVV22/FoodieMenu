@@ -1,0 +1,27 @@
+﻿@page "/menu/{MenuID:int}"
+
+<h1>@restaurant.Name</h1>
+<MudSpacer></MudSpacer>
+<h2>@menu.Name</h2>
+
+<MudPaper >
+    <MudPaper Class="d-flex flex-column flex-grow-1 gap-4" Elevation="0">
+        @foreach (var category in menu.Categories)
+        {
+            <MudPaper Class="d-flex flex-column flex-grow-1 gap-1" Elevation="0">
+                <MudPaper ><h2>@category.Name</h2></MudPaper>
+                @foreach (var item in category.Items)
+                {
+                    <MudPaper>
+                        <h3>@item.Name</h3>
+                        <p>@item.Description</p>
+                        <h5>Price: @item.Price</h5>
+                    </MudPaper>
+                    <MudSpacer />
+                }
+                <MudSpacer />
+            </MudPaper>
+        }
+    </MudPaper>
+    
+</MudPaper>

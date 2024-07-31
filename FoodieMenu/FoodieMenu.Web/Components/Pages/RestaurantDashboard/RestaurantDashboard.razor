@@ -1,0 +1,52 @@
+﻿@page "/RestaurantDashboard/{RestaurantID:int}"
+@rendermode InteractiveServer
+
+<h3>@restaurant.Name</h3>
+
+<MudPaper>
+    @* add menu *@
+    <MudCard>
+        <MudCardContent>
+            <MudText>Add menu</MudText>
+            <MudText Typo="Typo.body2">Add new menu with categories and items to your restaurant!</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+    @* add item *@
+    <MudCard>
+        <MudCardContent>
+            <MudText>Add Item</MudText>
+            <MudText Typo="Typo.body2">Add a new item to an existing menu or create a new one</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+    @* modify menu *@
+    <MudCard>
+        <MudCardContent>
+            <MudText>Modify menu</MudText>
+            <MudText Typo="Typo.body2">Modify an existing menu</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+    @* Modify restaurant *@
+    <MudCard>
+        <MudCardContent>
+            <MudText>Change restaurant settings</MudText>
+            <MudText Typo="Typo.body2">Change restaurant name, email and address</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+</MudPaper>
+
+

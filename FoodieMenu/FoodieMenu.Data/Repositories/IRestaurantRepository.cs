@@ -23,6 +23,7 @@ namespace FoodieMenu.Data.Repositories
         // Menu
         public List<Item> GetAllItems();
         public List<Item> GetItemsByRestaurantID(int ID);
+        public Menu GetMenuByID(int ID);
         public List<AddressRestaurant> GetAddressRestaurantsByRestaurantID(int ID);
         public List<Menu> GetMenusByRestaurantID(int ID);
 

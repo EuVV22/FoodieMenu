@@ -1,0 +1,25 @@
+﻿@page "/UpdateRestaurant/{RestaurantID:int}"
+@rendermode InteractiveServer
+
+
+<h1>@restaurant.Name</h1>
+<h2>Restaurant information</h2>
+<MudTextField @bind-Value="restaurant.Name" Label="Restaurant name" Variant="Variant.Text"></MudTextField>
+<MudTextField @bind-Value="restaurant.Description" Label="Restaurant description" Variant="Variant.Text"></MudTextField>
+<MudTextField @bind-Value="restaurant.email" Label="Email" Variant="Variant.Text"></MudTextField>
+
+<h2>Restaurant addresses</h2>
+@foreach (var address in restaurant.Address)
+{
+    <MudTextField @bind-Value="address.AddressName" Label="Address Name" Variant="Variant.Text"></MudTextField>
+    <MudTextField @bind-Value="address.Street" Label="Street" Variant="Variant.Text"></MudTextField>
+    <MudTextField @bind-Value="address.City" Label="City" Variant="Variant.Text"></MudTextField>
+    <MudTextField @bind-Value="address.Region" Label="Region" Variant="Variant.Text"></MudTextField>
+    <MudTextField @bind-Value="address.PostalCode" Label="Postal Code" Variant="Variant.Text"></MudTextField>
+    <MudTextField @bind-Value="address.Phone" Label="Phone number" Variant="Variant.Text"></MudTextField>
+}
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="UpdateRestaurantInfo">Update Restaurant</MudButton>
+
+
+

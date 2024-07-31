@@ -78,6 +78,10 @@ namespace FoodieMenu.Data.Repositories
             return _context.Items.Where(x => x.RestaurantID == ID).ToList();
         }
 
+        public Menu GetMenuByID(int ID)
+        {
+            return PopulateMenu(_context.Menus.Include(x => x.Categories).Single(x => x.MenuID == ID));
+        }
         public List<AddressRestaurant> GetAddressRestaurantsByRestaurantID(int ID)
         {
             return _context.Address.Where(x => x.RestaurantID == ID).ToList();
@@ -118,12 +122,12 @@ namespace FoodieMenu.Data.Repositories
             _context.SaveChanges();
         }
 
-        private void PopulateMenu(Menu menu)
+        private Menu PopulateMenu(Menu menu)
         {
             List<Item> restaurantItems = _context.Items.Where(x => x.RestaurantID == menu.RestaurantID).ToList();
             // Populate categories
             menu.Categories = _context.Categories.Include(x => x.Items).Where(x => x.MenuID == menu.MenuID).ToList();
-
+            return menu;
         } 
 
         // Update

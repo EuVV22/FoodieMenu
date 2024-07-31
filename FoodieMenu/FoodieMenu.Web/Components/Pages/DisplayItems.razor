@@ -2,14 +2,17 @@
 @rendermode InteractiveServer
 
 <h1>DisplayItems</h1>
+<MudPaper Class="d-flex flex-column flex-grow-1 gap-4" Elevation="0">
+    @foreach (var item in items)
+    {
+        <MudItem>
+            <MudPaper>
+                <h2>@item.Name</h2>
+                <h4>Price: @item.Price</h4>
+                <p>@item.Description</p>
+            </MudPaper>
+        </MudItem>
+        <MudSpacer />
+    }
+</MudPaper>
 
-@foreach (var item in items)
-{
-    <MudItem>
-        <MudPaper>
-            <h2>@item.Name</h2>
-            <h4>Price: @item.Price</h4>
-            <p>@item.Description</p>
-        </MudPaper>
-    </MudItem>
-}
