@@ -16,23 +16,29 @@ namespace FoodieMenu.Data.MockDataService
         {
             get
             {
-
+                return [Barc(), Restaurant] ;
             }
         }
 
+        // Barcelona
         private static Restaurant Barc()
         {
-            return new Restaurant()
+            Restaurant result = new Restaurant()
             {
                 Name = "Barcelona",
                 Description = "Bistro bar",
                 email = "barcelona@barcelona.com",
                 Address = [BarcAddress()],
                 Menus = [BarcMenu()],
-                Items = []
-                
-
             };
+            foreach (Category category in result.Menus[0].Categories)
+            {
+                foreach (Item item in category.Items)
+                {
+                    result.Items.Add(item);
+                }
+            }
+            return result;
         }
 
         private static AddressRestaurant BarcAddress()
@@ -64,12 +70,6 @@ namespace FoodieMenu.Data.MockDataService
             Category category4 = new Category() { Name = "Desserts", Items = BarcDessertsItems() };
             return [category1, category2, category4];
         }
-
-        private Dictionary<string, List<Item>> BarcFoodItemsByCategory = new Dictionary<string, List<Item>>(){
-            { "Tapas", BarcTapasItems()},
-            { "Entrees", BarcEntreesItems()},
-            { "Desserts",  BarcDessertsItems()}
-        };
 
         private static List<Item> BarcTapasItems()
         {
@@ -140,6 +140,9 @@ namespace FoodieMenu.Data.MockDataService
             return [item1, item2, item3];
         }
 
+
+        // Res2 TODO: Add more restaurants
+
         public static Restaurant Restaurant
         {
             get
@@ -172,14 +175,12 @@ namespace FoodieMenu.Data.MockDataService
                 Phone = "5026364400"
             };
 
-
             return [restaurant1, restaurant2];
         }
         private static List<Restaurant> InitializeMockRestaurants()
         {
             Restaurant restaurant1 = new Restaurant()
             {
-                RestaurantID = 1,
                 Name = "ResCode",
                 Description = "Mock restaurant with address of the campus",
                 email = "rescode@example.com"
@@ -191,12 +192,9 @@ namespace FoodieMenu.Data.MockDataService
         {
             return [new Menu()
             {
-                MenuID = 1,
-                RestaurantID = 1,
                 IsActive = true,
                 Name = "SummerMenu",
                 Categories = InitializeMockCategories(),
-
             }];
         }
 
@@ -204,27 +202,21 @@ namespace FoodieMenu.Data.MockDataService
         {
             Category category1 = new Category()
             {
-                MenuID = 1,
-                CategoryID = 1,
                 Name = "Appetizers",
                 Items = InitilizeMockItems()
             };
             Category category2 = new Category()
             {
-                MenuID = 2,
-                CategoryID = 2,
                 Name = "Entrees",
                 Items = []
             };
             return [category1, category2];
         }
 
-        private static List<Item> InitilizeMockItems()
+        public static List<Item> InitilizeMockItems()
         {
             Item item1 = new Item()
             {
-                RestaurantID = 1,
-                ItemID = 1,
                 Name = "Arepa",
                 Description = "Venezuelan typical food made out of cornmeal and stuff.",
                 Price = 7.5,
@@ -232,8 +224,6 @@ namespace FoodieMenu.Data.MockDataService
             };
             Item item2 = new Item()
             {
-                RestaurantID = 1,
-                ItemID = 2,
                 Name = "Cachapa",
                 Description = "Flat yellow sweet corn base pancake stuff with cheese",
                 Price = 8.8,
