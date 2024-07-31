@@ -1,5 +1,6 @@
 ﻿@page "/RestaurantDashboard/{RestaurantID:int}"
 @rendermode InteractiveServer
+@inject NavigationManager NavManager
 
 <h3>@restaurant.Name</h3>
 
@@ -11,7 +12,7 @@
             <MudText Typo="Typo.body2">Add new menu with categories and items to your restaurant!</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToAddMenu">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 
@@ -22,7 +23,7 @@
             <MudText Typo="Typo.body2">Add a new item to an existing menu or create a new one</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToAddItem">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 
@@ -44,7 +45,7 @@
             <MudText Typo="Typo.body2">Change restaurant name, email and address</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToUpdateRestaurant">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 </MudPaper>

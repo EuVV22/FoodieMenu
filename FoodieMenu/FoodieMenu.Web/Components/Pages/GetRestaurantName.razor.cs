@@ -13,11 +13,11 @@ namespace FoodieMenu.Web.Components.Pages
         [SupplyParameterFromForm]
         string RestaurantEmail { get; set; }
         Restaurant restaurant {  get; set; }
-
+        [Inject]
+        IRestaurantRepository repository { get; set; }
 
         private void ShowAddItemWeb()
         {
-            RestaurantRepository repository = new RestaurantRepository();
             restaurant = repository.GetRestaurantByEmail(RestaurantEmail);
             NavManager.NavigateTo($"/AddItem/{restaurant.RestaurantID}");
         }

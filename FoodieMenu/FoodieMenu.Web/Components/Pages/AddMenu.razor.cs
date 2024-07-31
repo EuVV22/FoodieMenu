@@ -22,6 +22,7 @@ namespace FoodieMenu.Web.Components.Pages
         public double ItemPrice { get; set; }
 
         Restaurant restaurant { get; set; }
+        [Inject]
         IRestaurantRepository Repository { get; set; }
         public bool IsActive { get; set; } = true;
 
@@ -31,8 +32,6 @@ namespace FoodieMenu.Web.Components.Pages
 
         protected override Task OnInitializedAsync()
         {
-            Repository = new RestaurantRepository();
-
             restaurant = Repository.GetRestaurantById(RestaurantID);
             IsActive = true;
             return base.OnInitializedAsync();

@@ -8,13 +8,26 @@ namespace FoodieMenu.Web.Components.Pages.RestaurantDashboard
     {
         [Parameter]
         public int RestaurantID { get; set; }
+        [Inject]
         IRestaurantRepository repository { get; set; }
         private Restaurant restaurant { get; set; }
         protected override Task OnInitializedAsync()
         {
-            repository = new RestaurantRepository();
             restaurant = repository.GetRestaurantById(RestaurantID);
             return base.OnInitializedAsync();
+        }
+
+        private void NavigateToAddMenu()
+        {
+            NavManager.NavigateTo($"/AddMenu/{RestaurantID}");
+        }
+        private void NavigateToAddItem()
+        {
+            NavManager.NavigateTo($"/AddItem/{RestaurantID}");
+        }
+        private void NavigateToUpdateRestaurant()
+        {
+            NavManager.NavigateTo($"/UpdateRestaurant/{RestaurantID}");
         }
     }
 }

@@ -1,3 +1,4 @@
+using FoodieMenu.Data.Repositories;
 using FoodieMenu.Web.Components;
 using MudBlazor.Services;
 
@@ -8,6 +9,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
+
+builder.Services.AddSingleton<IRestaurantRepository, RestaurantRepository>();
 
 var app = builder.Build();
 

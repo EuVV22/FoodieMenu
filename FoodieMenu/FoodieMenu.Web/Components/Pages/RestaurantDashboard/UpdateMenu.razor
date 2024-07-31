@@ -1,0 +1,40 @@
+﻿@page "/UpdateMenu/{MenuID:int}"
+@rendermode InteractiveServer
+
+<h1>@menu.Name</h1>
+
+@foreach (var category in menu.Categories)
+{
+    <MudPaper>
+        <MudPaper>
+            <h3>Category</h3>
+            <MudTextField @bind-Value="category.Name" Label="Category name" Variant="Variant.Text"></MudTextField>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => DeleteCategory(category.CategoryID)">Delete Category</MudButton>
+        </MudPaper>
+        
+        @foreach (var item in category.Items)
+        {
+            <MudPaper Class="d-flex flex-column flex-grow-1 gap-4" Elevation="0">
+                @if (!EditItem[item.Name])
+                {
+                    <MudPaper>
+                        <h3>@item.Name</h3>
+                        <p>@item.Description</p>
+                        <h4>Price: @item.Price</h4>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => EditItem[item.Name] = true">Edit item</MudButton>
+                    </MudPaper>
+                } else
+                {
+                    <MudPaper>
+                        <MudTextField @bind-Value="item.Name" Label="Item name" Variant="Variant.Text"></MudTextField>
+                        <MudTextField @bind-Value="item.Description" Label="Description" Variant="Variant.Text"></MudTextField>
+                        <MudTextField @bind-Value="item.Price" Label="Price" Variant="Variant.Text"></MudTextField>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => UpdateItem(item.ItemID)">Update item</MudButton>
+                    </MudPaper>
+                }
+            </MudPaper>
+        }
+    </MudPaper>
+    <MudSpacer></MudSpacer>
+}
+

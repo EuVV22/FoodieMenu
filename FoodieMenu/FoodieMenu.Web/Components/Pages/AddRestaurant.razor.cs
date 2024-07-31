@@ -12,12 +12,12 @@ namespace FoodieMenu.Web.Components.Pages
         public string RestaurantDescription { get; set; }
         [SupplyParameterFromForm]
         public string RestaurantEmail { get; set; }
+        [Inject]
         IRestaurantRepository Repository {  get; set; }
 
         // TODO: don't allow restaurants with the same name
         protected override Task OnInitializedAsync()
         {
-            Repository = new RestaurantRepository();
             return base.OnInitializedAsync();
         }
         private bool CreateRestaurant()
