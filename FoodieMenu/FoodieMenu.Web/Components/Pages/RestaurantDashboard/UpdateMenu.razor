@@ -1,5 +1,6 @@
 ﻿@page "/UpdateMenu/{MenuID:int}"
 @rendermode InteractiveServer
+@inject IDialogService DialogService
 
 <h1>@menu.Name</h1>
 
@@ -7,29 +8,55 @@
 {
     <MudPaper>
         <MudPaper>
-            <h3>Category</h3>
-            <MudTextField @bind-Value="category.Name" Label="Category name" Variant="Variant.Text"></MudTextField>
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => DeleteCategory(category.CategoryID)">Delete Category</MudButton>
+            @if (CategoryToEdit != null && CategoryToEdit.CategoryID == category.CategoryID)
+            {
+                <MudTextField @bind-Value="category.Name" Label="Category name" Variant="Variant.Text"></MudTextField>
+                @if (CategoryToDelete == null || CategoryToDelete.CategoryID != category.CategoryID)
+                {
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => UpdateCategory(category)">Update Category</MudButton>
+                }
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => CategoryToDelete = category">Delete Category</MudButton>
+            } else
+            {
+                <h3>@category.Name</h3>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => CategoryToEdit = category">Edit Category</MudButton>
+            }
+
+            @* // TODO: add logic to move or delete the category items *@
+            @if (CategoryToDelete != null && category.CategoryID == CategoryToDelete.CategoryID)
+            {
+                <h2>Select what to do with the items inside the category</h2>
+                @foreach (var categoryToMoveItemsTo in menu.Categories)
+                {
+                    @if(categoryToMoveItemsTo.CategoryID != category.CategoryID)
+                    {
+                        <MudButton Variant="Variant.Filled" @onclick="() => MoveItemsToExistingCategory(categoryToMoveItemsTo)">Move to @categoryToMoveItemsTo.Name</MudButton>
+                    }
+                }
+                <MudButton Variant="Variant.Filled" OnClick="DeleteCategoryWithoutMovingItems">Delete all items inside category</MudButton>
+                <MudButton Variant="Variant.Filled" OnClick="() => CategoryToDelete = null">Cancel</MudButton>
+            }
         </MudPaper>
         
         @foreach (var item in category.Items)
         {
             <MudPaper Class="d-flex flex-column flex-grow-1 gap-4" Elevation="0">
-                @if (!EditItem[item.Name])
-                {
-                    <MudPaper>
-                        <h3>@item.Name</h3>
-                        <p>@item.Description</p>
-                        <h4>Price: @item.Price</h4>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => EditItem[item.Name] = true">Edit item</MudButton>
-                    </MudPaper>
-                } else
+                @if (ItemToEdit != null && ItemToEdit.ItemID == item.ItemID)
                 {
                     <MudPaper>
                         <MudTextField @bind-Value="item.Name" Label="Item name" Variant="Variant.Text"></MudTextField>
                         <MudTextField @bind-Value="item.Description" Label="Description" Variant="Variant.Text"></MudTextField>
                         <MudTextField @bind-Value="item.Price" Label="Price" Variant="Variant.Text"></MudTextField>
-                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => UpdateItem(item.ItemID)">Update item</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => UpdateItem()">Update item</MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => DeleteItem(item, category)">Delete item</MudButton>
+                    </MudPaper>
+                } else
+                {
+                    <MudPaper>
+                        <h3>@item.Name</h3>
+                        <p>@item.Description</p>
+                        <h4>Price: @item.Price</h4>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => ItemToEdit = item">Edit item</MudButton>
                     </MudPaper>
                 }
             </MudPaper>

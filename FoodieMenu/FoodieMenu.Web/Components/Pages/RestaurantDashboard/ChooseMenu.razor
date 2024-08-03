@@ -1,0 +1,11 @@
+﻿@page "/Menus/{RestaurantID:int}"
+@rendermode InteractiveServer
+@inject NavigationManager NavManager
+
+<h2>Choose menu to modify</h2>
+@foreach (var menu in menus) 
+{
+    <MudText>@menu.Name</MudText>
+    <MudButton OnClick="() => NavigateToEditMenuPage(menu.MenuID)">Edit Menu</MudButton>
+}
+

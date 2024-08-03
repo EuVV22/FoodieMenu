@@ -25,6 +25,10 @@ namespace FoodieMenu.Web.Components.Pages.RestaurantDashboard
         {
             NavManager.NavigateTo($"/AddItem/{RestaurantID}");
         }
+        private void NavigateToUpdateMenu()
+        {
+            NavManager.NavigateTo($"/Menus/{RestaurantID}");
+        }
         private void NavigateToUpdateRestaurant()
         {
             NavManager.NavigateTo($"/UpdateRestaurant/{RestaurantID}");

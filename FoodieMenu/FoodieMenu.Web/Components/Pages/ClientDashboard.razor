@@ -1,0 +1,29 @@
+﻿@page "/ClientDashboard"
+@rendermode InteractiveServer
+@inject NavigationManager NavManager
+
+<MudPaper>
+    <MudCard>
+        <MudCardContent>
+            <MudText>See restaurants Items!</MudText>
+            <MudText Typo="Typo.body2">See a display of all the items the restaurants offer!</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(seeItems)">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+
+    <MudCard>
+        <MudCardContent>
+            <MudText>Find a restaurant</MudText>
+            <MudText Typo="Typo.body2">See a list of all the restaurants and browse their menus!</MudText>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(seeRestaurants)">Learn More</MudButton>
+        </MudCardActions>
+    </MudCard>
+
+</MudPaper>
+
+

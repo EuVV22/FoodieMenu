@@ -15,11 +15,12 @@ namespace FoodieMenu.Web.Components.Pages
         Restaurant restaurant {  get; set; }
         [Inject]
         IRestaurantRepository repository { get; set; }
+        const string AddRestaurantAddress = "/AddRestaurant";
 
-        private void ShowAddItemWeb()
+        private void NavigateToRestaurantDashboard()
         {
             restaurant = repository.GetRestaurantByEmail(RestaurantEmail);
-            NavManager.NavigateTo($"/AddItem/{restaurant.RestaurantID}");
+            NavManager.NavigateTo($"/RestaurantDashboard/{restaurant.RestaurantID}");
         }
     }
 }

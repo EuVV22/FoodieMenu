@@ -18,6 +18,7 @@ namespace FoodieMenu.Data.Repositories
         public void AddItem(Item item);
         public Restaurant GetRestaurantById(int ID);
         public Restaurant GetRestaurantByEmail(string email);
+        public List<Restaurant> GetAllRestaurant();
         public List<string> GetAllRestaurantEmails();
 
         // Menu
@@ -37,5 +38,7 @@ namespace FoodieMenu.Data.Repositories
         public void UpdateRestaurant(Restaurant restaurant);
         public void UpdateMenu(Menu menu);
         public void UpdateCategory(Category category);
+        public void UpdateItem(Item item);
+
     }
 }

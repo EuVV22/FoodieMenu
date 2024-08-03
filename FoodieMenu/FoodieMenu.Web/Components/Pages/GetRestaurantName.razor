@@ -6,6 +6,10 @@
 
 <MudForm @ref="form2">
     <MudTextField T="string" Label="RestaurantEmail" @bind-Value="RestaurantEmail" Required="true" RequiredError="Restaurant email is required!" />
-    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="ShowAddItemWeb">Register</MudButton>
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="NavigateToRestaurantDashboard">Register</MudButton>
 </MudForm>
 
+<h1> Create new restaurant </h1>
+<MudForm >
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(AddRestaurantAddress)">Create new restaurant</MudButton>
+</MudForm>

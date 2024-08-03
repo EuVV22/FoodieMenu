@@ -61,6 +61,10 @@ namespace FoodieMenu.Data.Repositories
             return _context.Restaurants.Single(restaurant => restaurant.email ==  email);
         }
 
+        public List<Restaurant> GetAllRestaurant()
+        {
+            return _context.Restaurants.Include(x => x.Menus).Include(x => x.Items).ToList();
+        }
         public List<string>GetAllRestaurantEmails()
         {
             return _context.Restaurants.Select(x => x.email).ToList();
@@ -146,6 +150,12 @@ namespace FoodieMenu.Data.Repositories
         public void UpdateCategory(Category category)
         {
             _context.Categories.Update(category);
+            _context.SaveChanges();
+        }
+
+        public void UpdateItem(Item item)
+        {
+            _context.Items.Update(item);
             _context.SaveChanges();
         }
     }
