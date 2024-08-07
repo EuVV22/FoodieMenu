@@ -25,11 +25,11 @@ namespace FoodieMenu.Data
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).FullName;
-            var path = Environment.CurrentDirectory;
+            var path = Directory.GetParent(projectDirectory).FullName;
             DbPath = System.IO.Path.Join(projectDirectory, "Foodie.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite($"Data Source=C:\\Users\\Euclides\\Documents\\Projects\\FoodieMenu\\FoodieMenu\\Foodie.db");
+            => optionsBuilder.UseSqlite($"Data Source={DbPath}");
     }
 }
