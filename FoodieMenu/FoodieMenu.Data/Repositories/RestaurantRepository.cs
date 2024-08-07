@@ -82,6 +82,16 @@ namespace FoodieMenu.Data.Repositories
             return _context.Items.Where(x => x.RestaurantID == ID).ToList();
         }
 
+        public List<Item> GetItemsByCategoryID(int categoryID)
+        {
+            Category category = _context.Categories.Single(x => x.CategoryID == categoryID);
+            if (category == null)
+            {
+                return new List<Item>();
+            }
+            return _context.Items.Where(x => x.Categories.Contains(category)).ToList();
+        }
+
         public Menu GetMenuByID(int ID)
         {
             return PopulateMenu(_context.Menus.Include(x => x.Categories).Single(x => x.MenuID == ID));
