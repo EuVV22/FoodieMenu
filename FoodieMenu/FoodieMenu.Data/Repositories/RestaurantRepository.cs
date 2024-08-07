@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using FoodieMenu.Data.MockDataService;
 
 namespace FoodieMenu.Data.Repositories
 {
@@ -17,6 +18,13 @@ namespace FoodieMenu.Data.Repositories
         public RestaurantRepository()
         {
             _context = new FoodieContext();
+            if (!_context.Restaurants.Any())
+            {
+                foreach (var restaurant in MockDataService.MockDataService.Restaurants)
+                {
+                    AddRestaurant(restaurant);
+                }
+            }
         }
 
         public void AddRestaurant(Restaurant restaurant)

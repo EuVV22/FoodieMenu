@@ -27,6 +27,7 @@ namespace FoodieMenu.Data
             string projectDirectory = Directory.GetParent(workingDirectory).FullName;
             var path = Directory.GetParent(projectDirectory).FullName;
             DbPath = System.IO.Path.Join(projectDirectory, "Foodie.db");
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
