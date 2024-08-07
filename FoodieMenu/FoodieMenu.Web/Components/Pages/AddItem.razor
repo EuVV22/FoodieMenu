@@ -6,9 +6,9 @@
 <MudSelect T="string" Label="Menu" @bind-value="SelectedMenu">
     @foreach(var menu in _restaurant.Menus)
     {
-        <MudSelectItem Value="@menu.Name" DisplayString="testing"/>
+        <MudSelectItem Value="@menu.Name"/>
     }
-    <MudSelectItem Value="@NewMenu" />
+    <MudSelectItem Value="NewMenu" />
 </MudSelect>
 
 @if (SelectedMenu != string.Empty)

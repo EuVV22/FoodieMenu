@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FoodieMenu.Data\FoodieMenu.Data.csproj" />
     <ProjectReference Include="..\FoodieMenu.Domain\FoodieMenu.Domain.csproj" />
+    <ProjectReference Include="..\FoodieMenu.Web\FoodieMenu.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>

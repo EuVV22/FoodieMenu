@@ -7,15 +7,21 @@ namespace FoodieMenu.Web.Components.Pages
 {
     public partial class AddItem
     {
+        [Inject]
+        private IRestaurantRepository Repository { get; set; }
         [Parameter]
         public int RestaurantID { get; set; }
         private Restaurant _restaurant { get; set; }
-        [Inject]
-        private IRestaurantRepository Repository { get; set; }
-        private string SelectedMenu {  get; set; } = string.Empty;
         private Menu menu { get; set; }
         private Category category { get; set; }
         private Item item { get; set; }
+        private string SelectedMenu { get; set; } = string.Empty;
+        private string MenuName { get; set; }
+        private string CategoryName { get; set; }
+        private string SelectedCategory { get; set; }
+
+        private const string NewMenu = "New menu";
+        private const string NewCategory = "New category";
 
         protected override Task OnInitializedAsync()
         {
@@ -23,13 +29,6 @@ namespace FoodieMenu.Web.Components.Pages
             item = new Item();
             return base.OnInitializedAsync();
         }
-
-        private string MenuName { get; set; }
-        private string CategoryName { get; set; }
-        private string SelectedCategory { get; set; }
-        private const string NewMenu = "New menu";
-        private const string NewCategory = "New category";
-
         private void CreateMenu()
         {
             if (SelectedMenu == NewMenu)
@@ -64,5 +63,10 @@ namespace FoodieMenu.Web.Components.Pages
             _restaurant.Items.Add(item);
             Repository.UpdateRestaurant(_restaurant);
         }
+
+        //public bool ValidRestaurantName(string restaurantName)
+        //{
+
+        //}
     }
 }

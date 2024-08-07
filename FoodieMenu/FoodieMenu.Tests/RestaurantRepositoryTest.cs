@@ -2,6 +2,7 @@ using FoodieMenu.Data;
 using FoodieMenu.Data.Repositories;
 using FoodieMenu.Domain.Menu;
 using Microsoft.EntityFrameworkCore;
+using FoodieMenu.Web.Components.Pages;
 namespace FoodieMenu.Tests
 {
     [TestClass]
