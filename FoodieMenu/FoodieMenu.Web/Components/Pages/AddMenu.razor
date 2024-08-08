@@ -5,15 +5,15 @@
 <h1>Add new menu to @restaurant.Name</h1>
 <MudItem xs="12" sm="7">
     <MudPaper Class="pa-4">
-        <MudForm @ref="form">
-            <MudTextField T="string" Label="MenuName" @bind-Value="MenuName" Required="true" RequiredError="Menu name is required!" />
+        <MudForm @ref="form" @bind-IsValid="@areValuesValid">
+            <MudTextField T="string" Label="MenuName" @bind-Value="MenuName" Validation="@(new Func<string, IEnumerable<string>>(MenuNameValidation))" Required="true" RequiredError="Menu name is required!" />
             <MudTextField T="string" Label="CategoryName" @bind-Value="CategoryName" Required="true" RequiredError="A category is required!" />
             
             <MudTextField T="string" Label="ItemName" @bind-Value="ItemName" Required="true" RequiredError="Item name is required!" />
             <MudTextField T="string" Label="ItemDescription" @bind-Value="ItemDescription" Required="true" RequiredError="Item name is required!" />
             <MudTextField T="double" Label="ItemPrice" @bind-Value="ItemPrice" Required="true" RequiredError="Item price is required!" />
 
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="Test">Register</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!areValuesValid)" @onclick="Test">Register</MudButton>
         </MudForm>
     </MudPaper>
 </MudItem>

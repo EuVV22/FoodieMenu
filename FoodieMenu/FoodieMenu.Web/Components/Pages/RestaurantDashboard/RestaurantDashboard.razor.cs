@@ -11,27 +11,23 @@ namespace FoodieMenu.Web.Components.Pages.RestaurantDashboard
         [Inject]
         IRestaurantRepository repository { get; set; }
         private Restaurant restaurant { get; set; }
+        private Dictionary<string, string> Paths {  get; set; }
+
+        private string AddMenuPath { get; set; }
+        private string AddItemPath { get; set; }
+        private string MenusPath { get; set; }
+        private string UpdateRestaurantPath { get; set; }
+
         protected override Task OnInitializedAsync()
         {
             restaurant = repository.GetRestaurantById(RestaurantID);
-            return base.OnInitializedAsync();
-        }
 
-        private void NavigateToAddMenu()
-        {
-            NavManager.NavigateTo($"/AddMenu/{RestaurantID}");
-        }
-        private void NavigateToAddItem()
-        {
-            NavManager.NavigateTo($"/AddItem/{RestaurantID}");
-        }
-        private void NavigateToUpdateMenu()
-        {
-            NavManager.NavigateTo($"/Menus/{RestaurantID}");
-        }
-        private void NavigateToUpdateRestaurant()
-        {
-            NavManager.NavigateTo($"/UpdateRestaurant/{RestaurantID}");
+            AddMenuPath = $"/AddMenu/{RestaurantID}";
+            AddItemPath = $"/AddItem/{RestaurantID}";
+            MenusPath = $"/Menus/{RestaurantID}";
+            UpdateRestaurantPath = $"/UpdateRestaurant/{RestaurantID}";
+
+            return base.OnInitializedAsync();
         }
     }
 }

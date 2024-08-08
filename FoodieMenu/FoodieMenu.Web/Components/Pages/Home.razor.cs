@@ -8,7 +8,7 @@
 
         private void NavigateToApp(string url)
         {
-
+            NavManager.NavigateTo(url);
         }
     }
 }

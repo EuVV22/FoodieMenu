@@ -12,7 +12,7 @@
             <MudText Typo="Typo.body2">Add new menu with categories and items to your restaurant!</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToAddMenu">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(AddMenuPath)">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 
@@ -23,7 +23,7 @@
             <MudText Typo="Typo.body2">Add a new item to an existing menu or create a new one</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToAddItem">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(AddItemPath)">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 
@@ -34,7 +34,7 @@
             <MudText Typo="Typo.body2">Modify an existing menu</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToUpdateMenu">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(MenusPath)">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 
@@ -45,7 +45,7 @@
             <MudText Typo="Typo.body2">Change restaurant name, email and address</MudText>
         </MudCardContent>
         <MudCardActions>
-            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="NavigateToUpdateRestaurant">Learn More</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(UpdateRestaurantPath)">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
 </MudPaper>

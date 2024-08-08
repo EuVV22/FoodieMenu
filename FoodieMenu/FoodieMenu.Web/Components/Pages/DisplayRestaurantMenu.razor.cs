@@ -12,11 +12,12 @@ namespace FoodieMenu.Web.Components.Pages
         [Inject]
         IRestaurantRepository repository { get; set; }
         private Menu menu { get; set; }
-        private Restaurant restaurant { get; set; }
+        private string restaurantName { get; set; }
         protected override Task OnInitializedAsync()
         {
             menu = repository.GetMenuByID(MenuID);
-            restaurant = repository.GetRestaurantById(menu.RestaurantID);
+            Restaurant restaurant = repository.GetRestaurantById(menu.RestaurantID);
+            restaurantName = restaurant.Name;
             return base.OnInitializedAsync();
         }
 
