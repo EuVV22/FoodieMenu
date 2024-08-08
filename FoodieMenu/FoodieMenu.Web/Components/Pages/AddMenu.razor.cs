@@ -54,7 +54,7 @@ namespace FoodieMenu.Web.Components.Pages
             restaurant.Menus = [menu];
             restaurant.Items = [item];
 
-            Repository.AddRestaurant(restaurant);
+            Repository.UpdateRestaurant(restaurant);
             Restaurant addedRestaurant = Repository.GetRestaurantByEmail(restaurant.email);
             NavManager.NavigateTo($"/AddItem/{addedRestaurant.RestaurantID}");
         }
