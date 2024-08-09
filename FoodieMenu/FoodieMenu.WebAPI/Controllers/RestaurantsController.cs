@@ -1,4 +1,5 @@
 ﻿using FoodieMenu.Data.Repositories;
+using FoodieMenu.Domain.Menu;
 using FoodieMenu.Domain.Restaurants;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
@@ -25,32 +26,96 @@ namespace FoodieMenu.WebAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(_repository.GetAllRestaurant());
+            return Ok(restaurants);
         }
 
         // GET api/<RestaurantsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            Restaurant restaurant = _repository.GetRestaurantById(id);
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+            DepopulateItemCategoryFromRestaurant(ref restaurant);
+            return Ok(restaurant);
+        }
+
+        // GET api/<RestaurantsController>/5/menus
+        [HttpGet("{id}/menus")]
+        public IActionResult GetMenus(int id)
+        {
+            Restaurant restaurant = _repository.GetRestaurantById(id);
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+            DepopulateItemCategoryFromRestaurant(ref restaurant);
+            return Ok(restaurant.Menus);
         }
 
         // POST api/<RestaurantsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Restaurant restaurant)
         {
+            _repository.AddRestaurant(restaurant);
         }
 
         // PUT api/<RestaurantsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Restaurant restaurant)
         {
+            Restaurant foundRestaurant = _repository.GetRestaurantById(id);
+            if (foundRestaurant == null)
+            {
+                return BadRequest();
+            }
+            _repository.UpdateRestaurant(restaurant);
+            return Ok(_repository.GetRestaurantById(id));
         }
 
         // DELETE api/<RestaurantsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            Restaurant restaurant = _repository.GetRestaurantById(id);
+            if (restaurant == null)
+            {
+                return NotFound();
+            }
+            _repository.RemoveRestaurant(restaurant);
+            return Ok();
+        }
+
+        private void DepopulateItemCategoryFromMenu(ref Menu menu)
+        {
+            foreach (Category category in menu.Categories)
+            {
+                foreach (Item item in category.Items)
+                {
+                    item.Categories = [];
+                }
+            }
+        }
+
+        private void DepopulateItemCategoryFromRestaurant(ref Restaurant restaurant)
+        {
+            foreach (Item item in  restaurant.Items)
+            {
+                item.Categories = [];
+            }
+
+            foreach (Menu menu in restaurant.Menus)
+            {
+                foreach (Category category in menu.Categories)
+                {
+                    foreach (Item item in category.Items)
+                    {
+                        item.Categories = [];
+                    }
+                }
+            }
         }
     }
 }

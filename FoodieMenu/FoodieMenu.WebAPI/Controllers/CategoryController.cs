@@ -44,8 +44,9 @@ namespace FoodieMenu.WebAPI.Controllers
 
         // POST api/<CategoryController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Category category)
         {
+            _repository.AddCategory(category);
         }
 
         // PUT api/<CategoryController>/5

@@ -27,9 +27,5 @@ namespace FoodieMenu.WebAPI.Controllers
             }
             return Ok(items);
         }
-
-        
-
-
     }
 }
