@@ -2,10 +2,14 @@
 @rendermode InteractiveServer
 @inject NavigationManager NavManager
 
-<h2>Choose menu to modify</h2>
+<MudText Typo="Typo.h4" GutterBottom="true">Choose menu to modify</MudText>
 @foreach (var menu in menus) 
 {
-    <MudText>@menu.Name</MudText>
-    <MudButton OnClick="() => NavigateToEditMenuPage(menu.MenuID)">Edit Menu</MudButton>
+    <MudCard>
+        <MudText Typo="Typo.h5">@menu.Name</MudText>
+        <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Secondary" OnClick="() => NavigateToEditMenuPage(menu.MenuID)">Edit Menu</MudButton>
+        </MudCardActions>
+    </MudCard>
 }
 

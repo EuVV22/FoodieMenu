@@ -2,13 +2,12 @@
 @rendermode InteractiveServer
 @inject NavigationManager NavManager
 
-<h3>@restaurant.Name</h3>
+<MudText Typo="Typo.h3" GutterBottom="true">@restaurant.Name</MudText>
 
-<MudPaper>
     @* add menu *@
-    <MudCard>
+    <MudCard Class="mb-6">
         <MudCardContent>
-            <MudText>Add menu</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Add menu</MudText>
             <MudText Typo="Typo.body2">Add new menu with categories and items to your restaurant!</MudText>
         </MudCardContent>
         <MudCardActions>
@@ -17,9 +16,9 @@
     </MudCard>
 
     @* add item *@
-    <MudCard>
+    <MudCard Class="mb-6">
         <MudCardContent>
-            <MudText>Add Item</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Add Item</MudText>
             <MudText Typo="Typo.body2">Add a new item to an existing menu or create a new one</MudText>
         </MudCardContent>
         <MudCardActions>
@@ -28,9 +27,9 @@
     </MudCard>
 
     @* modify menu *@
-    <MudCard>
+    <MudCard Class="mb-6">
         <MudCardContent>
-            <MudText>Modify menu</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Modify menu</MudText>
             <MudText Typo="Typo.body2">Modify an existing menu</MudText>
         </MudCardContent>
         <MudCardActions>
@@ -39,15 +38,14 @@
     </MudCard>
 
     @* Modify restaurant *@
-    <MudCard>
+    <MudCard Class="mb-6">
         <MudCardContent>
-            <MudText>Change restaurant settings</MudText>
+            <MudText Typo="Typo.h5" GutterBottom="true">Change restaurant settings</MudText>
             <MudText Typo="Typo.body2">Change restaurant name, email and address</MudText>
         </MudCardContent>
         <MudCardActions>
             <MudButton Variant="Variant.Text" Color="Color.Primary" @onclick="() => NavManager.NavigateTo(UpdateRestaurantPath)">Learn More</MudButton>
         </MudCardActions>
     </MudCard>
-</MudPaper>
 
 

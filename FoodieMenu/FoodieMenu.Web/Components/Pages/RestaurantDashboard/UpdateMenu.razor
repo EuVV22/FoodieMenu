@@ -2,11 +2,11 @@
 @rendermode InteractiveServer
 @inject IDialogService DialogService
 
-<h1>@menu.Name</h1>
+<MudText Typo="Typo.h3" GutterBottom="true">@menu.Name</MudText>
 
 @foreach (var category in menu.Categories)
 {
-    <MudPaper>
+    <MudPaper Class="mb-6">
         <MudPaper>
             @if (CategoryToEdit != null && CategoryToEdit.CategoryID == category.CategoryID)
             {
@@ -18,7 +18,7 @@
                 <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => CategoryToDelete = category">Delete Category</MudButton>
             } else
             {
-                <h3>@category.Name</h3>
+                <MudText Typo="Typo.h5">@category.Name</MudText>
                 <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="() => CategoryToEdit = category">Edit Category</MudButton>
             }
 

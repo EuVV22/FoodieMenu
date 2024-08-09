@@ -3,7 +3,7 @@
 @inject NavigationManager NavManager
 
 
-<h3>DisplayAllRestaurants</h3>
+<MudText Typo="Typo.h3" GutterBottom="true">DisplayAllRestaurants</MudText>
 @foreach (var restaurant in AllRestaurants)
 {
     
@@ -11,7 +11,7 @@
         <MudItem>
             <MudCard Class="d-flex flex-column flex-grow-1 gap-4" Elevation="1">
                 <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Dark" Typo=Typo.h6 OnClick="() => DisplayRestaurantMenus(restaurant.RestaurantID)">@restaurant.Name</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Typo=Typo.h6 OnClick="() => DisplayRestaurantMenus(restaurant.RestaurantID)">@restaurant.Name</MudButton>
                 </MudCardActions>
                 <MudText Typo=Typo.body1>@restaurant.Description</MudText>
                 <MudText Typo=Typo.body1>@restaurant.email</MudText>

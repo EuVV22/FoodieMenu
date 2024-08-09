@@ -15,12 +15,6 @@ namespace FoodieMenu.WebAPI.Controllers
         {
             _repository = restaurantRepository;
         }
-        // GET: api/<MenuController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
         // GET api/<MenuController>/5
         [HttpGet("{id}")]
@@ -37,20 +31,35 @@ namespace FoodieMenu.WebAPI.Controllers
 
         // POST api/<MenuController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Menu menu)
         {
+            _repository.AddMenu(menu);
         }
 
         // PUT api/<MenuController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Menu menu)
         {
+            Menu foundMenu = _repository.GetMenuByID(id);
+            if (foundMenu == null)
+            {
+                return NotFound();
+            }
+            _repository.UpdateMenu(menu);
+            return Ok(_repository.GetMenuByID(id));
         }
 
         // DELETE api/<MenuController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            Menu menu = _repository.GetMenuByID(id);
+            if(menu == null)
+            {
+                return BadRequest();
+            }
+            _repository.RemoveMenu(menu);
+            return Ok();
         }
     }
 }

@@ -62,6 +62,7 @@ namespace FoodieMenu.Web.Components.Pages
             menu.Categories.Add(category);
             _restaurant.Items.Add(item);
             Repository.UpdateRestaurant(_restaurant);
+            NavManager.NavigateTo($"/AddItem/{RestaurantID}", true);
         }
 
         //public bool ValidRestaurantName(string restaurantName)

@@ -25,6 +25,7 @@ namespace FoodieMenu.Web.Components.Pages.RestaurantDashboard
         private void UpdateRestaurantInfo()
         {
             repository.UpdateRestaurant(restaurant);
+            NavManager.NavigateTo($"/RestaurantDashboard/{RestaurantID}");
         }
     }
 }

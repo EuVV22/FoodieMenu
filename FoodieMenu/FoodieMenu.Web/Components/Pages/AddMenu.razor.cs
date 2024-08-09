@@ -53,7 +53,7 @@ namespace FoodieMenu.Web.Components.Pages
             };
             category.Items = [item];
             menu.Categories = [category];
-            restaurant.Menus = [menu];
+            restaurant.Menus.Add(menu);
             restaurant.Items = [item];
 
             Repository.UpdateRestaurant(restaurant);

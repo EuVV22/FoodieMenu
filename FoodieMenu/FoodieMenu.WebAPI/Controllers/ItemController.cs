@@ -17,6 +17,7 @@ namespace FoodieMenu.WebAPI.Controllers
             _repository = Repository;
         }
 
+        // GET api/<ItemController>
         [HttpGet]
         public IActionResult GetAllItems()
         {
@@ -26,6 +27,27 @@ namespace FoodieMenu.WebAPI.Controllers
                 return NotFound();
             }
             return Ok(items);
+        }
+
+        // POST api/<ItemController>
+        [HttpPost]
+        public void Post([FromBody] Item item)
+        {
+            _repository.AddItem(item);
+        }
+
+        // PUT api/<ItemController>
+        [HttpPut]
+        public void Put([FromBody] Item item)
+        {
+            _repository.UpdateItem(item);
+        }
+
+        // DELETE api/<ItemController>
+        [HttpDelete]
+        public void Delete([FromBody] Item item)
+        {
+            _repository.RemoveItem(item);
         }
     }
 }
