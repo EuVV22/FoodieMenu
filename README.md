@@ -1,7 +1,8 @@
 # FoodieMenu
 
 FoodieMenu is a web application that helps customers find new food, it does so by displaying offering from different restaurants so the focus is more on the food that on the establishment.
-To incentivise restaurants to add their food, the web app also creates a more interactive way for the restaurants to display their different menus and has a way to position the restaurant agains competitors.
+To incentivise restaurants to add their food, the web app also creates a more interactive way for the restaurants to display their different menus.
+Foodie menu is a work in progress.
 
 # Installation:
 Clone the repository github.com/EuVV22/FoodieMenu
@@ -9,6 +10,16 @@ Clone the repository github.com/EuVV22/FoodieMenu
 # Usage
 Set the FoodieMenu.Web solution as the startup project and run the program.
 The program has a web base UI that lets you decide what type of customer are you and each has a dashboard presenting all the possible options.
+## Functionality
+### For restaurants
+* Add menu
+* Add items
+* Modify menus
+* Change restaurant settings
+
+### For customers
+* Display all items from different restaurants
+* Display all restaurants to find each menu
 
 # Credits
 This code was created as a final capstone project for the software development pathway for CODE:YOU, thanks to all the Staff and my mentors Jhon and Neil.
