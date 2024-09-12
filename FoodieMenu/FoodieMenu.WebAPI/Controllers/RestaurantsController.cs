@@ -22,7 +22,7 @@ namespace FoodieMenu.WebAPI.Controllers
         public IActionResult Get()
         {
             List<Restaurant> restaurants = _repository.GetAllRestaurant();
-            if (restaurants == null || restaurants.Count == 0)
+            if (restaurants == null || restaurants.Any())
             {
                 return NotFound();
             }
@@ -90,6 +90,7 @@ namespace FoodieMenu.WebAPI.Controllers
 
         private void DepopulateItemCategoryFromMenu(ref Menu menu)
         {
+            
             foreach (Category category in menu.Categories)
             {
                 foreach (Item item in category.Items)
@@ -101,21 +102,10 @@ namespace FoodieMenu.WebAPI.Controllers
 
         private void DepopulateItemCategoryFromRestaurant(ref Restaurant restaurant)
         {
-            foreach (Item item in  restaurant.Items)
-            {
-                item.Categories = [];
-            }
+            restaurant.Items.ForEach(item => item.Categories.Clear());
 
-            foreach (Menu menu in restaurant.Menus)
-            {
-                foreach (Category category in menu.Categories)
-                {
-                    foreach (Item item in category.Items)
-                    {
-                        item.Categories = [];
-                    }
-                }
-            }
+            var items = restaurant.Menus.SelectMany(menu => menu.Categories).SelectMany(category => category.Items).ToList();
+            items.ForEach(item => item.Categories.Clear());
         }
     }
 }

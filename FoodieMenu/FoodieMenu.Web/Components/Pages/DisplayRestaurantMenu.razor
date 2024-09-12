@@ -1,26 +1,37 @@
 ﻿@page "/menu/{MenuID:int}"
+@layout FoodieMenu.Web.Components.Layout.EmptyLayout
+@rendermode InteractiveServer
 
-<h1>@restaurantName</h1>
-<MudSpacer></MudSpacer>
-<h2>@menu.Name</h2>
+@* Header restaurant description *@
+<MudCard>
+    <MudText Typo="Typo.h1" Align="Align.Center">@restaurantName</MudText>
+    <MudSpacer />
+    <MudText Typo="Typo.h3" Align="Align.Center">@menu.Name</MudText>
+    <MudSpacer />
+</MudCard>
 
-<MudPaper Class="d-flex flex-column flex-grow-1 gap-4" Elevation="0">
+
+@* Category tabs *@
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary">
+
+    @* Category contents *@
+
     @foreach (var category in menu.Categories)
     {
-        <MudPaper Class="d-flex flex-column flex-grow-1 gap-1 mb-6" Elevation="0">
-            <MudPaper ><h2>@category.Name</h2></MudPaper>
-            @foreach (var item in category.Items)
-            {
-                <MudPaper>
-                    <h3>@item.Name</h3>
-                    <p>@item.Description</p>
-                    <h5>Price: @item.Price</h5>
-                </MudPaper>
-                <MudSpacer />
-            }
-            <MudSpacer />
-        </MudPaper>
+        <MudTabPanel Text=@category.Name>
+            <MudCard>
+                @foreach (var item in category.Items)
+                {
+                    <MudPaper>
+                        <MudPaper>
+                            <MudText Typo="Typo.h5" Align="Align.Center">@item.Name</MudText>
+                            <MudText Typo="Typo.body1" Align="Align.Center">@item.Description</MudText>
+                            <MudText Typo="Typo.subtitle1" Align="Align.Right">Price: @item.Price</MudText>
+                        </MudPaper>
+                    </MudPaper>
+                    <MudSpacer />
+                }
+            </MudCard>
+        </MudTabPanel>
     }
-</MudPaper>
-
-
+</MudTabs>
