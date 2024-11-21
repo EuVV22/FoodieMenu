@@ -8,6 +8,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using FoodieMenu.Data.MockDataService;
+using FoodieMenu.Domain.UserAuthentication;
 
 namespace FoodieMenu.Data.Repositories
 {
@@ -24,9 +25,18 @@ namespace FoodieMenu.Data.Repositories
                 {
                     AddRestaurant(restaurant);
                 }
+
+                foreach (UserAccount user in MockDataService.MockDataService.Users)
+                {
+                    user.restaurants = GetAllRestaurant();
+                }
             }
         }
-
+        public void AddUser(UserAccount user)
+        {
+            _context.UserAccounts.Add(user);
+            _context.SaveChanges();
+        }
         public void AddRestaurant(Restaurant restaurant)
         {
             _context.Restaurants.Add(restaurant);

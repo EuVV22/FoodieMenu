@@ -1,6 +1,7 @@
 ﻿using FoodieMenu.Data.Repositories;
 using FoodieMenu.Domain.Menu;
 using FoodieMenu.Domain.Restaurants;
+using FoodieMenu.Domain.UserAuthentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,33 @@ namespace FoodieMenu.Data.MockDataService
             {
                 return [Barc(), Restaurant] ;
             }
+        }
+
+        public static List<UserAccount> Users {
+            get
+            {
+                return [AdminUser(), UserAccount()];
+            }
+        }
+
+        public static UserAccount AdminUser()
+        {
+            return new UserAccount()
+            {
+                UserName = "admin",
+                Password = "admin",
+                Role = "admin"
+            };
+        }
+
+        public static UserAccount UserAccount()
+        {
+            return new UserAccount()
+            {
+                UserName = "user",
+                Password = "user",
+                Role = "user"
+            };
         }
 
         // Barcelona

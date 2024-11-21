@@ -1,5 +1,6 @@
 ﻿using FoodieMenu.Domain.Menu;
 using FoodieMenu.Domain.Restaurants;
+using FoodieMenu.Domain.UserAuthentication;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace FoodieMenu.Data.Repositories
 {
     public interface IRestaurantRepository
     {
+        public void AddUser(UserAccount user);
         public void AddRestaurant(Restaurant restaurant);
         public void AddAddress(AddressRestaurant address);
         public void AddMenu(Menu menu);
@@ -28,8 +30,11 @@ namespace FoodieMenu.Data.Repositories
         public Menu GetMenuByID(int ID);
         public List<AddressRestaurant> GetAddressRestaurantsByRestaurantID(int ID);
         public List<Menu> GetMenusByRestaurantID(int ID);
+        public List<UserAccount> GetAllUsers();
+        public UserAccount GetUserByID(int ID);
 
         // Delete
+        public void RemoveUser(UserAccount user);
         public void RemoveItem(Item item);
         public void RemoveMenu(Menu menu);
         public void RemoveCategory(Category category);

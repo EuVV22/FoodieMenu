@@ -1,5 +1,6 @@
 using FoodieMenu.Data.Repositories;
 using FoodieMenu.Web.Components;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,17 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "auth_token";
+        options.LoginPath = "/login";
+        options.Cookie.MaxAge = TimeSpan.FromMinutes(30);
+        options.AccessDeniedPath = "/access-denied";
+    });
+builder.Services.AddAuthorization();
+builder.Services.AddCascadingAuthenticationState();
+
 
 builder.Services.AddSingleton<IRestaurantRepository, RestaurantRepository>();
 //builder.Services.AddScoped(implementationFactory: IServiceProvider sp => new HttpClient { BaseAddress = new Uri(uriString: "") });
@@ -36,6 +48,8 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
