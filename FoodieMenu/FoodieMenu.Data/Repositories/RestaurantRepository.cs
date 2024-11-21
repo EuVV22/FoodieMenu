@@ -29,6 +29,7 @@ namespace FoodieMenu.Data.Repositories
                 foreach (UserAccount user in MockDataService.MockDataService.Users)
                 {
                     user.restaurants = GetAllRestaurant();
+                    AddUser(user);
                 }
             }
         }
@@ -129,7 +130,23 @@ namespace FoodieMenu.Data.Repositories
             return menus;
         }
 
+        public List<UserAccount> GetAllUsers()
+        {
+            List<UserAccount> users = _context.UserAccounts.Include(x => x.restaurants).ToList();
+            return users;
+        }
+
+        public UserAccount GetUserByID(int ID)
+        {
+            return _context.UserAccounts.Single(x => x.Id == ID);
+        }
+
         // Delete
+        public void RemoveUser(UserAccount user)
+        {
+            _context.UserAccounts.Remove(user);
+            _context.SaveChanges();
+        }
         public void RemoveItem(Item item)
         {
             _context.Items.Remove(item);
