@@ -32,6 +32,7 @@ namespace FoodieMenu.Data.Repositories
         public List<Menu> GetMenusByRestaurantID(int ID);
         public List<UserAccount> GetAllUsers();
         public UserAccount GetUserByID(int ID);
+        public UserAccount GetUserByUserName(string userName);
 
         // Delete
         public void RemoveUser(UserAccount user);

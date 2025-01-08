@@ -1,0 +1,8 @@
+﻿@page "/accessLogIn"
+@inject NavigationManager NavManager
+
+
+<h3>LogIn</h3>
+<MudTextField T="string" Label="Name" @bind-Value="UserName" Required="true" RequiredError="Item name is required!" />
+<MudTextField T="string" Label="Password" @bind-Value="Password" Required="true" RequiredError="Item password is required!" />
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="Authenticate">LogIn</MudButton>

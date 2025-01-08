@@ -141,6 +141,11 @@ namespace FoodieMenu.Data.Repositories
             return _context.UserAccounts.Single(x => x.Id == ID);
         }
 
+        public UserAccount GetUserByUserName(string userName)
+        {
+            return _context.UserAccounts.Include(x => x.restaurants).Single(x =>x.UserName == userName);
+        }
+
         // Delete
         public void RemoveUser(UserAccount user)
         {

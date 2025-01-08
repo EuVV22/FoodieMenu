@@ -34,7 +34,7 @@
     }
 
     <MudTextField T="string" Label="ItemName" @bind-Value="item.Name" Required="true" RequiredError="Item name is required!" />
-    <MudTextField T="string" Label="ItemDescription" @bind-Value="item.Description" Required="true" RequiredError="Item name is required!" />
+    <MudTextField T="string" Label="ItemDescription" @bind-Value="item.Description" Required="true" RequiredError="Item description is required!" />
     <MudTextField T="double" Label="ItemPrice" @bind-Value="item.Price" Required="true" RequiredError="Item price is required!" />
     <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="summit">Register</MudButton>
 }
